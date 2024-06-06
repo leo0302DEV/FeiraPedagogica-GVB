@@ -12,15 +12,20 @@ const StyledImage = styled.img`
 `;
 
 const StyledMainSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: absolute;
   width: 100%;
-  padding: 1.7rem;
+  padding: 2rem;
   background-color: #ffffff;
   border-radius: 100px 100px 0 0;
   margin-top: -140px;
+`;
+
+const StyledBoxSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20%;
+  width: 100%;
 `;
 
 const StyledTitle = styled.h1`
@@ -77,13 +82,15 @@ const FirstPage = () => {
           alt="Imagem de fundo, céu estrelado, gerada por inteligência artificial."
         />
         <StyledMainSection>
-          <StyledTitle>Você sabe como anda seu sono?</StyledTitle>
-          <StyledParagraph>
-            Responda à 10 perguntas rápidas e descubra!
-          </StyledParagraph>
-          <StyledIcon src="/icons/arrow-down.png" />
-          <PrimaryButton text={"Responder"} onAction={handleClick} />
-          <StyledSpan>Turma 221 | GVB</StyledSpan>
+          <StyledBoxSection>
+            <StyledTitle>Você sabe como anda seu sono?</StyledTitle>
+            <StyledParagraph>
+              Responda à 10 perguntas rápidas e descubra!
+            </StyledParagraph>
+            <StyledIcon src="/icons/arrow-down.png" />
+            <PrimaryButton text={"Responder"} onAction={handleClick} />
+            <StyledSpan>Turma 221 | GVB</StyledSpan>
+          </StyledBoxSection>
         </StyledMainSection>
       </StyledMainContainer>
     </main>
