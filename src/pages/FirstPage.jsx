@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import GlobalStyle from "./components/GlobalStyles";
-import PrimaryButton from "./components/PrimaryButton";
+import { useNavigate } from "react-router-dom";
+import PrimaryButton from "../components/PrimaryButton";
 
 const StyledMainContainer = styled.section`
   width: 100%;
@@ -59,13 +59,18 @@ const StyledSpan = styled.span`
   text-align: center;
   font-size: 16px;
   color: #5f5f5f;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 `;
 
-const App = () => {
+const FirstPage = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/questionOne");
+  };
+
   return (
     <main>
-      <GlobalStyle />
       <StyledMainContainer>
         <StyledImage
           src="/images/imagem-pagina-inicial.png"
@@ -77,7 +82,7 @@ const App = () => {
             Responda à 10 perguntas rápidas e descubra!
           </StyledParagraph>
           <StyledIcon src="/icons/arrow-down.png" />
-          <PrimaryButton text={"Responder"} />
+          <PrimaryButton text={"Responder"} onAction={handleClick} />
           <StyledSpan>Turma 221 | GVB</StyledSpan>
         </StyledMainSection>
       </StyledMainContainer>
@@ -85,4 +90,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default FirstPage;

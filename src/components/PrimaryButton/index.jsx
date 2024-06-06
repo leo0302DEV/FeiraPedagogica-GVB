@@ -11,8 +11,8 @@ const StyledButton = styled.button`
   width: 80%;
 `;
 
-const PrimaryButton = ({ text }) => {
-  return <StyledButton>{text}</StyledButton>;
+const PrimaryButton = ({ text, onAction }) => {
+  return <StyledButton onClick={onAction}>{text}</StyledButton>;
 };
 
 export default PrimaryButton;
