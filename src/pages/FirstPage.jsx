@@ -12,6 +12,9 @@ const StyledImage = styled.img`
 `;
 
 const StyledMainSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   width: 100%;
   padding: 2rem;
@@ -20,25 +23,18 @@ const StyledMainSection = styled.div`
   margin-top: -140px;
 `;
 
-const StyledBoxSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20%;
-  width: 100%;
-`;
-
 const StyledTitle = styled.h1`
   text-align: center;
   font-size: 30px;
   color: #5f5f5f;
+  margin-top: 1rem;
 `;
 
 const StyledParagraph = styled.p`
   text-align: center;
   font-size: 20px;
   color: #5f5f5f;
-  margin: 1rem 0 2rem 0;
+  margin: 1.5rem 0 4.5rem 0;
 `;
 
 const StyledIcon = styled.img`
@@ -64,7 +60,7 @@ const StyledSpan = styled.span`
   text-align: center;
   font-size: 16px;
   color: #5f5f5f;
-  margin-top: 2.5rem;
+  margin-top: 3.5rem;
 `;
 
 const FirstPage = () => {
@@ -82,15 +78,13 @@ const FirstPage = () => {
           alt="Imagem de fundo, céu estrelado, gerada por inteligência artificial."
         />
         <StyledMainSection>
-          <StyledBoxSection>
-            <StyledTitle>Você sabe como anda seu sono?</StyledTitle>
-            <StyledParagraph>
-              Responda à 10 perguntas rápidas e descubra!
-            </StyledParagraph>
-            <StyledIcon src="/icons/arrow-down.png" />
-            <PrimaryButton text={"Responder"} onAction={handleClick} />
-            <StyledSpan>Turma 221 | GVB</StyledSpan>
-          </StyledBoxSection>
+          <StyledTitle>Você sabe como anda seu sono?</StyledTitle>
+          <StyledParagraph>
+            Responda à 10 perguntas rápidas e descubra!
+          </StyledParagraph>
+          <StyledIcon src="/icons/arrow-down.png" />
+          <PrimaryButton text={"Responder"} onAction={handleClick} />
+          <StyledSpan>Turma 221 | GVB</StyledSpan>
         </StyledMainSection>
       </StyledMainContainer>
     </main>
