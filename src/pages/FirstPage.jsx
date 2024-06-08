@@ -67,7 +67,7 @@ const FirstPage = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/questionOne");
+    navigate("/results");
   };
 
   return (
