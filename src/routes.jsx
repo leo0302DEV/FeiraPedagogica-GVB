@@ -62,6 +62,7 @@ const AppPages = () => {
       value={{
         age,
         setAge,
+        sleepHours,
         setSleepHours,
         setQuestionTreePoints,
         setQuestionFourPoints,

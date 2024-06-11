@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import QuestionsPageMold from "../components/QuetionsPageMold";
+import { QuestionsContext } from "../routes";
+import RangeQuestionMold from "../components/QuetionsPageMold/RangeQuestionMold";
+import { useContext } from "react";
 
 const QuestionTwo = () => {
   const navigate = useNavigate();
+  const { sleepHours, setSleepHours } = useContext(QuestionsContext);
 
   const toNextQuestion = () => {
     navigate("/questionTree");
@@ -14,7 +18,13 @@ const QuestionTwo = () => {
       quetionNumber={2}
       buttonActionFunc={toNextQuestion}
     >
-      <h1>Olá, mundo!</h1>
+      <RangeQuestionMold
+        state={sleepHours}
+        statesSeter={setSleepHours}
+        minValue={1}
+        maxValue={20}
+        complement={"h"}
+      />
     </QuestionsPageMold>
   );
 };

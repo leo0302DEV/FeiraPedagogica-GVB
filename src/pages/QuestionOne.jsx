@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { QuestionsContext } from "../routes";
 import QuestionsPageMold from "../components/QuetionsPageMold";
 import { useNavigate } from "react-router-dom";
+import RangeQuestionMold from "../components/QuetionsPageMold/RangeQuestionMold";
 
 const QuestionOne = () => {
   const navigate = useNavigate();
@@ -17,7 +18,12 @@ const QuestionOne = () => {
       quetionNumber={1}
       buttonActionFunc={toNextQuestion}
     >
-      <h1>Olá, mundo!</h1>
+      <RangeQuestionMold
+        state={age}
+        statesSeter={setAge}
+        minValue={1}
+        maxValue={100}
+      />
     </QuestionsPageMold>
   );
 };
