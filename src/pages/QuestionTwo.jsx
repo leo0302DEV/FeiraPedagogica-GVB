@@ -9,7 +9,7 @@ const QuestionTwo = () => {
   const { sleepHours, setSleepHours } = useContext(QuestionsContext);
 
   const toNextQuestion = () => {
-    navigate("/questionTree");
+    navigate("/questionThree");
   };
 
   return (

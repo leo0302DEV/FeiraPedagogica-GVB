@@ -80,7 +80,7 @@ const FirstPage = () => {
         <StyledMainSection>
           <StyledTitle>Você sabe como anda seu sono?</StyledTitle>
           <StyledParagraph>
-            Responda à 10 perguntas rápidas e descubra!
+            Responda à 7 perguntas rápidas e descubra!
           </StyledParagraph>
           <StyledIcon src="/icons/arrow-down.png" />
           <PrimaryButton text={"Responder"} onAction={handleClick} />
