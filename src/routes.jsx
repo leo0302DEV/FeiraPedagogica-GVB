@@ -24,41 +24,37 @@ const AppPages = () => {
   const [result, setResult] = useState(0);
 
   const returnSleepQualityResult = () => {
-    setResult(
-      (preveousPoints) =>
-        preveousPoints +
-        questionTreePoints +
-        questionFourPoints +
-        questionFivePoints +
-        questionSixPoints +
-        questionSevenPoints
-    );
+    let totalPoints =
+      questionTreePoints +
+      questionFourPoints +
+      questionFivePoints +
+      questionSixPoints +
+      questionSevenPoints;
 
     if (age < 18) {
       if (sleepHours >= 8) {
-        setResult((preveousPoints) => preveousPoints + 3);
+        totalPoints += 3;
       }
     } else {
       if (sleepHours >= 7) {
-        setResult((preveousPoints) => preveousPoints + 3);
+        totalPoints += 3;
       }
     }
 
-    switch (result) {
-      case result < 6:
-        return "Péssima";
-      case 6 <= result <= 12:
-        return "Muito ruim";
-      case 13 <= result <= 18:
-        return "Ruim";
-      case 19 <= result <= 24:
-        return "Moderada";
-      case 25 <= result <= 27:
-        return "Boa";
-      case result > 27:
-        return "Muito boa";
-      default:
-        break;
+    setResult(totalPoints);
+
+    if (totalPoints < 6) {
+      return "Péssima";
+    } else if (totalPoints <= 12) {
+      return "Muito ruim";
+    } else if (totalPoints <= 18) {
+      return "Ruim";
+    } else if (totalPoints <= 24) {
+      return "Moderada";
+    } else if (totalPoints <= 27) {
+      return "Boa";
+    } else {
+      return "Muito boa";
     }
   };
 
@@ -75,6 +71,7 @@ const AppPages = () => {
         setQuestionSixPoints,
         setQuestionSevenPoints,
         returnSleepQualityResult,
+        result,
       }}
     >
       <BrowserRouter>

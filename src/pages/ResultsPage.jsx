@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import PrimaryButton from "../components/PrimaryButton";
+import { useContext, useEffect, useState } from "react";
+import { QuestionsContext } from "../routes";
 
 const StyledMainContainer = styled.section`
   width: 100%;
@@ -47,18 +49,23 @@ const StyledSpan = styled.span`
 `;
 
 const ResultsPage = () => {
+  const { returnSleepQualityResult, result } = useContext(QuestionsContext);
+  const [quality, setQuality] = useState("");
   const handleClick = () => {
     console.log("Olá mundo");
   };
+
+  useEffect(() => {
+    const qualityResult = returnSleepQualityResult();
+    setQuality(qualityResult);
+  }, [returnSleepQualityResult]);
 
   return (
     <StyledMainContainer>
       <StyledContentBox>
         <StyledTitle>A qualidade do seu sono é:</StyledTitle>
-        <StyledResultParagraph>
-          Inadequada e insuficiente.
-        </StyledResultParagraph>
-        <StyledScoreParagraph>Seus pontos: 15</StyledScoreParagraph>
+        <StyledResultParagraph>{quality}</StyledResultParagraph>
+        <StyledScoreParagraph>Seus pontos: {result}</StyledScoreParagraph>
         <PrimaryButton
           text={"Veja como você pode melhorar o seu sono."}
           onAction={handleClick}
