@@ -29,7 +29,7 @@ const StyledTitle = styled.h1`
 
 const StyledResultParagraph = styled.p`
   font-size: 35px;
-  margin: 1.5rem 0 0.5rem 0;
+  margin: 3.5rem 0 0.5rem 0;
   text-align: center;
   color: #0b3d91;
 `;
@@ -45,15 +45,12 @@ const StyledSpan = styled.span`
   text-align: center;
   font-size: 18px;
   color: #5f5f5f;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 `;
 
 const ResultsPage = () => {
   const { returnSleepQualityResult, result } = useContext(QuestionsContext);
   const [quality, setQuality] = useState("");
-  const handleClick = () => {
-    console.log("Olá mundo");
-  };
 
   useEffect(() => {
     const qualityResult = returnSleepQualityResult();
@@ -66,11 +63,7 @@ const ResultsPage = () => {
         <StyledTitle>A qualidade do seu sono é:</StyledTitle>
         <StyledResultParagraph>{quality}</StyledResultParagraph>
         <StyledScoreParagraph>Seus pontos: {result}</StyledScoreParagraph>
-        <PrimaryButton
-          text={"Veja como você pode melhorar o seu sono."}
-          onAction={handleClick}
-        />
-        <StyledSpan>Turma 221 GVB</StyledSpan>
+        <StyledSpan>Turma 221 | GVB</StyledSpan>
       </StyledContentBox>
     </StyledMainContainer>
   );

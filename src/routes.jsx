@@ -43,18 +43,16 @@ const AppPages = () => {
 
     setResult(totalPoints);
 
-    if (totalPoints < 6) {
-      return "Péssima";
-    } else if (totalPoints <= 12) {
-      return "Muito ruim";
-    } else if (totalPoints <= 18) {
+    if (totalPoints <= 12) {
       return "Ruim";
-    } else if (totalPoints <= 24) {
+    } else if (totalPoints <= 18) {
       return "Moderada";
-    } else if (totalPoints <= 27) {
+    } else if (totalPoints <= 24) {
       return "Boa";
-    } else {
+    } else if (totalPoints <= 27) {
       return "Muito boa";
+    } else {
+      return "Exelente!";
     }
   };
 
