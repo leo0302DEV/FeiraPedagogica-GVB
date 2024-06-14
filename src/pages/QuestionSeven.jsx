@@ -1,23 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import QuestionsPageMold from "../components/QuetionsPageMold/index";
-import ObjetiveQuestionsMold from "../components/QuetionsPageMold/ObjetiveQuestionsMold";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { QuestionsContext } from "../routes";
-import styled from "styled-components";
-
-const StyledList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  list-style-type: none;
-  padding: 1rem;
-`;
+import ObjetiveQuestionsList from "../components/QuetionsPageMold/ObjetiveQuestionsList";
+import optionsConfig from "../mocks/questionSeven.json";
 
 const QuestionSeven = () => {
   const navigate = useNavigate();
   const { setQuestionSevenPoints } = useContext(QuestionsContext);
+  const [selectedAlternative, setSelectedAlternative] = useState("");
+
+  const commonOptionsConfigObj = {
+    statesSetter: setQuestionSevenPoints,
+    selectedAlternative: selectedAlternative,
+    setSelectedAlternative: setSelectedAlternative,
+    name: "question-seven",
+  };
 
   const handleClick = () => {
     navigate("/results");
@@ -30,32 +28,10 @@ const QuestionSeven = () => {
       buttonText={"Ver resultado"}
       buttonActionFunc={handleClick}
     >
-      <StyledList>
-        <ObjetiveQuestionsMold
-          alternativeLetter={"A"}
-          alternativeText={"Muito baixo"}
-          alternativePoints={1}
-          statesSetter={setQuestionSevenPoints}
-        />
-        <ObjetiveQuestionsMold
-          alternativeLetter={"B"}
-          alternativeText={"Baixo"}
-          alternativePoints={2}
-          statesSetter={setQuestionSevenPoints}
-        />
-        <ObjetiveQuestionsMold
-          alternativeLetter={"C"}
-          alternativeText={"Moderado"}
-          alternativePoints={3}
-          statesSetter={setQuestionSevenPoints}
-        />
-        <ObjetiveQuestionsMold
-          alternativeLetter={"D"}
-          alternativeText={"Alto"}
-          alternativePoints={4}
-          statesSetter={setQuestionSevenPoints}
-        />
-      </StyledList>
+      <ObjetiveQuestionsList
+        commonOptionsConfigObj={commonOptionsConfigObj}
+        opitionsConfigObj={optionsConfig.opitionsConfigObj}
+      />
     </QuestionsPageMold>
   );
 };

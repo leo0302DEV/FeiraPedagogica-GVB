@@ -1,0 +1,24 @@
+{
+  "opitionsConfigObj": [
+    {
+      "alternativeLetter": "A",
+      "alternativeText": "Muito baixo",
+      "alternativePoints": 1
+    },
+    {
+      "alternativeLetter": "B",
+      "alternativeText": "Baixo",
+      "alternativePoints": 2
+    },
+    {
+      "alternativeLetter": "C",
+      "alternativeText": "Moderado",
+      "alternativePoints": 3
+    },
+    {
+      "alternativeLetter": "D",
+      "alternativeText": "Alto",
+      "alternativePoints": 4
+    }
+  ]
+}

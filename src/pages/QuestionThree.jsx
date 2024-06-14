@@ -1,23 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import QuestionsPageMold from "../components/QuetionsPageMold/index";
-import ObjetiveQuestionsMold from "../components/QuetionsPageMold/ObjetiveQuestionsMold";
-import styled from "styled-components";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { QuestionsContext } from "../routes";
-
-const StyledList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  list-style-type: none;
-  padding: 1rem;
-`;
+import ObjetiveQuestionsList from "../components/QuetionsPageMold/ObjetiveQuestionsList";
+import opitionsConfig from "../mocks/questionThree.json";
 
 const QuestionThree = () => {
   const navigate = useNavigate();
   const { setQuestionTreePoints } = useContext(QuestionsContext);
+  const [selectedAlternative, setSelectedAlternative] = useState("");
+
+  const commonOptionsConfigObj = {
+    statesSetter: setQuestionTreePoints,
+    selectedAlternative: selectedAlternative,
+    setSelectedAlternative: setSelectedAlternative,
+    name: "question-three",
+  };
 
   const handleClick = () => {
     navigate("/questionFour");
@@ -30,32 +28,10 @@ const QuestionThree = () => {
       buttonText={"Próxima"}
       buttonActionFunc={handleClick}
     >
-      <StyledList>
-        <ObjetiveQuestionsMold
-          alternativeLetter={"A"}
-          alternativeText={"Nunca"}
-          statesSetter={setQuestionTreePoints}
-          alternativePoints={4}
-        />
-        <ObjetiveQuestionsMold
-          alternativeLetter={"B"}
-          alternativeText={"Raramente"}
-          statesSetter={setQuestionTreePoints}
-          alternativePoints={3}
-        />
-        <ObjetiveQuestionsMold
-          alternativeLetter={"C"}
-          alternativeText={"Frequentemente"}
-          statesSetter={setQuestionTreePoints}
-          alternativePoints={2}
-        />
-        <ObjetiveQuestionsMold
-          alternativeLetter={"D"}
-          alternativeText={"Todas as noites"}
-          statesSetter={setQuestionTreePoints}
-          alternativePoints={1}
-        />
-      </StyledList>
+      <ObjetiveQuestionsList
+        opitionsConfigObj={opitionsConfig.opitionsConfigObj}
+        commonOptionsConfigObj={commonOptionsConfigObj}
+      />
     </QuestionsPageMold>
   );
 };

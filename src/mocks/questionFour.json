@@ -1,0 +1,24 @@
+{
+  "opitionsConfigObj": [
+    {
+      "alternativeLetter": "A",
+      "alternativeText": "Muito Ruim",
+      "alternativePoints": 1
+    },
+    {
+      "alternativeLetter": "B",
+      "alternativeText": "Ruim",
+      "alternativePoints": 2
+    },
+    {
+      "alternativeLetter": "C",
+      "alternativeText": "Boa",
+      "alternativePoints": 3
+    },
+    {
+      "alternativeLetter": "D",
+      "alternativeText": "Muito boa",
+      "alternativePoints": 4
+    }
+  ]
+}

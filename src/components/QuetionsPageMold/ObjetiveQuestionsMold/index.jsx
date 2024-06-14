@@ -1,7 +1,6 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-const StyledAlternativeContainer = styled.section`
+const StyledAlternativeContainer = styled.label`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -24,25 +23,45 @@ const StyledText = styled.p`
   color: #000000;
 `;
 
+const StyledRadioInput = styled.input`
+  display: none;
+`;
+
 const ObjetiveQuestionsMold = ({
   alternativeLetter,
   alternativeText,
   statesSetter,
   alternativePoints,
+  name,
+  selectedAlternative,
+  setSelectedAlternative,
 }) => {
-  const [clickCouter, setClickCouter] = useState(0);
   const handleClick = () => {
     statesSetter(alternativePoints);
-    setClickCouter((previousValue) => previousValue + 1);
+    setSelectedAlternative(alternativeLetter);
   };
 
   return (
-    <StyledAlternativeContainer onClick={handleClick}>
-      <StyledBox color={clickCouter % 2 === 0 ? "#6a5acd" : "#A93CFE"}>
-        {alternativeLetter}
-      </StyledBox>
-      <StyledText>{alternativeText}</StyledText>
-    </StyledAlternativeContainer>
+    <>
+      <StyledAlternativeContainer
+        onClick={handleClick}
+        htmlFor={`ghost-input-radio-for-${alternativeLetter}`}
+      >
+        <StyledBox
+          color={
+            selectedAlternative !== alternativeLetter ? "#6a5acd" : "#A93CFE"
+          }
+        >
+          {alternativeLetter}
+        </StyledBox>
+        <StyledText>{alternativeText}</StyledText>
+      </StyledAlternativeContainer>
+      <StyledRadioInput
+        type="radio"
+        id={`ghost-input-radio-for-${alternativeLetter}`}
+        name={name}
+      />
+    </>
   );
 };
 

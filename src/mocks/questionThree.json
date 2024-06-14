@@ -1,0 +1,24 @@
+{
+  "opitionsConfigObj": [
+    {
+      "alternativeLetter": "A",
+      "alternativeText": "Nunca",
+      "alternativePoints": 4
+    },
+    {
+      "alternativeLetter": "B",
+      "alternativeText": "Raramente",
+      "alternativePoints": 3
+    },
+    {
+      "alternativeLetter": "C",
+      "alternativeText": "Frequentemente",
+      "alternativePoints": 2
+    },
+    {
+      "alternativeLetter": "D",
+      "alternativeText": "Todas as noites",
+      "alternativePoints": 1
+    }
+  ]
+}
