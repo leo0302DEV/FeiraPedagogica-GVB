@@ -1,19 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import QuestionsPageMold from "../components/QuetionsPageMold/index";
-import { useContext, useState } from "react";
-import { QuestionsContext } from "../routes";
+import { useContext } from "react";
+import { QuestionsContext } from "../providers/QuestionsProvider";
 import ObjetiveQuestionsList from "../components/QuetionsPageMold/ObjetiveQuestionsList";
 import optionsConfig from "../mocks/questionSix.json";
+import { ObjetiveQuestionsContext } from "../providers/ObjetiveQuestionsProvider";
 
 const QuestionSix = () => {
   const navigate = useNavigate();
   const { setQuestionSixPoints } = useContext(QuestionsContext);
-  const [selectedAlternative, setSelectedAlternative] = useState("");
+  const { selectedAlternativeSix, setSelectedAlternativeSix } = useContext(
+    ObjetiveQuestionsContext
+  );
 
   const commonOptionsConfigObj = {
     statesSetter: setQuestionSixPoints,
-    selectedAlternative: selectedAlternative,
-    setSelectedAlternative: setSelectedAlternative,
+    selectedAlternative: selectedAlternativeSix,
+    setSelectedAlternative: setSelectedAlternativeSix,
     name: "question-six",
   };
 

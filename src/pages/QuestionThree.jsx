@@ -1,19 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import QuestionsPageMold from "../components/QuetionsPageMold/index";
-import { useContext, useState } from "react";
-import { QuestionsContext } from "../routes";
+import { useContext } from "react";
+import { QuestionsContext } from "../providers/QuestionsProvider";
 import ObjetiveQuestionsList from "../components/QuetionsPageMold/ObjetiveQuestionsList";
 import opitionsConfig from "../mocks/questionThree.json";
+import { ObjetiveQuestionsContext } from "../providers/ObjetiveQuestionsProvider";
 
 const QuestionThree = () => {
   const navigate = useNavigate();
   const { setQuestionTreePoints } = useContext(QuestionsContext);
-  const [selectedAlternative, setSelectedAlternative] = useState("");
+  const { selectedAlternativeThree, setSelectedAlternativeThree } = useContext(
+    ObjetiveQuestionsContext
+  );
 
   const commonOptionsConfigObj = {
     statesSetter: setQuestionTreePoints,
-    selectedAlternative: selectedAlternative,
-    setSelectedAlternative: setSelectedAlternative,
+    selectedAlternative: selectedAlternativeThree,
+    setSelectedAlternative: setSelectedAlternativeThree,
     name: "question-three",
   };
 

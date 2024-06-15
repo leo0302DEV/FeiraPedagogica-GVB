@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import PrimaryButton from "../components/PrimaryButton";
 import { useContext, useEffect, useState } from "react";
-import { QuestionsContext } from "../routes";
+import { QuestionsContext } from "../providers/QuestionsProvider";
 
 const StyledMainContainer = styled.section`
   width: 100%;

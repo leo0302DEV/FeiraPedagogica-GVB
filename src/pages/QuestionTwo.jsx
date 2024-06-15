@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import QuestionsPageMold from "../components/QuetionsPageMold";
-import { QuestionsContext } from "../routes";
+import { QuestionsContext } from "../providers/QuestionsProvider";
 import RangeQuestionMold from "../components/QuetionsPageMold/RangeQuestionMold";
 import { useContext } from "react";
 
