@@ -1,27 +1,17 @@
 import { useContext } from "react";
 import { QuestionsContext } from "../providers/QuestionsProvider";
 import QuestionsPageMold from "../components/QuetionsPageMold";
-import { useNavigate } from "react-router-dom";
 import RangeQuestionMold from "../components/QuetionsPageMold/RangeQuestionMold";
 
 const QuestionOne = () => {
-  const navigate = useNavigate();
   const { age, setAge } = useContext(QuestionsContext);
-
-  const toNextQuestion = () => {
-    navigate("/questionTwo");
-  };
-
-  const toPreviousQuestion = () => {
-    navigate(-1);
-  };
 
   return (
     <QuestionsPageMold
       question={"Quantos anos você tem?"}
       quetionNumber={1}
-      buttonActionFunc={toNextQuestion}
-      buttonTwoActionFunc={toPreviousQuestion}
+      buttonUrl={"/questionTwo"}
+      buttonTwoUrl={-1}
     >
       <RangeQuestionMold
         state={age}

@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import QuestionsPageMold from "../components/QuetionsPageMold/index";
 import { useContext } from "react";
 import { QuestionsContext } from "../providers/QuestionsProvider";
@@ -7,7 +6,6 @@ import optionsConfig from "../mocks/questionSix.json";
 import { ObjetiveQuestionsContext } from "../providers/ObjetiveQuestionsProvider";
 
 const QuestionSix = () => {
-  const navigate = useNavigate();
   const { setQuestionSixPoints } = useContext(QuestionsContext);
   const { selectedAlternativeSix, setSelectedAlternativeSix } = useContext(
     ObjetiveQuestionsContext
@@ -20,21 +18,13 @@ const QuestionSix = () => {
     name: "question-six",
   };
 
-  const handleClick = () => {
-    navigate("/questionSeven");
-  };
-
-  const toPreviousQuestion = () => {
-    navigate(-1);
-  };
-
   return (
     <QuestionsPageMold
       question={"Você costuma tirar cochilos durante o dia?"}
       quetionNumber={6}
       buttonText={"Próxima"}
-      buttonActionFunc={handleClick}
-      buttonTwoActionFunc={toPreviousQuestion}
+      buttonUrl={"/questionSeven"}
+      buttonTwoUrl={-1}
     >
       <ObjetiveQuestionsList
         commonOptionsConfigObj={commonOptionsConfigObj}

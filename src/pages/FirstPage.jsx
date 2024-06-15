@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../components/PrimaryButton";
 
 const StyledMainContainer = styled.section`
@@ -64,12 +63,6 @@ const StyledSpan = styled.span`
 `;
 
 const FirstPage = () => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/questionOne");
-  };
-
   return (
     <main>
       <StyledMainContainer>
@@ -83,7 +76,7 @@ const FirstPage = () => {
             Responda à 7 perguntas rápidas e descubra!
           </StyledParagraph>
           <StyledIcon src="/icons/arrow-down.png" />
-          <PrimaryButton text={"Responder"} onAction={handleClick} />
+          <PrimaryButton text={"Responder"} url={"/questionOne"} />
           <StyledSpan>Turma 221 | GVB</StyledSpan>
         </StyledMainSection>
       </StyledMainContainer>

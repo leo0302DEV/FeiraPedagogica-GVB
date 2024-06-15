@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -11,7 +12,13 @@ const StyledButton = styled.button`
   width: 80%;
 `;
 
-const PrimaryButton = ({ text, onAction }) => {
+const PrimaryButton = ({ text, url }) => {
+  const navigate = useNavigate();
+
+  const onAction = () => {
+    navigate(url);
+  };
+
   return <StyledButton onClick={onAction}>{text}</StyledButton>;
 };
 

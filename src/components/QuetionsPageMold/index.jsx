@@ -39,8 +39,8 @@ const QuestionsPageMold = ({
   question,
   quetionNumber,
   buttonText = "Próxima",
-  buttonActionFunc,
-  buttonTwoActionFunc = null,
+  buttonUrl,
+  buttonTwoUrl = null,
   children,
 }) => {
   return (
@@ -49,10 +49,8 @@ const QuestionsPageMold = ({
       <StyledParagraph>{question}</StyledParagraph>
       {children}
       <StyledButtonContainer>
-        {buttonTwoActionFunc && (
-          <PrimaryButton text={"Anterior"} onAction={buttonTwoActionFunc} />
-        )}
-        <PrimaryButton text={buttonText} onAction={buttonActionFunc} />
+        {buttonTwoUrl && <PrimaryButton text={"Anterior"} url={buttonTwoUrl} />}
+        <PrimaryButton text={buttonText} url={buttonUrl} />
       </StyledButtonContainer>
     </StyledPrimeryPageContainer>
   );

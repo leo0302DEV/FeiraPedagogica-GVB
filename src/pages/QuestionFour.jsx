@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import QuestionsPageMold from "../components/QuetionsPageMold/index";
 import { useContext } from "react";
 import { QuestionsContext } from "../providers/QuestionsProvider";
@@ -7,7 +6,6 @@ import optionsConfig from "../mocks/questionFour.json";
 import { ObjetiveQuestionsContext } from "../providers/ObjetiveQuestionsProvider";
 
 const QuestionFour = () => {
-  const navigate = useNavigate();
   const { setQuestionFourPoints } = useContext(QuestionsContext);
   const { selectedAlternativeFour, setSelectedAlternativeFour } = useContext(
     ObjetiveQuestionsContext
@@ -20,14 +18,6 @@ const QuestionFour = () => {
     name: "question-four",
   };
 
-  const handleClick = () => {
-    navigate("/questionFive");
-  };
-
-  const toPreviousQuestion = () => {
-    navigate(-1);
-  };
-
   return (
     <QuestionsPageMold
       question={
@@ -35,8 +25,8 @@ const QuestionFour = () => {
       }
       quetionNumber={4}
       buttonText={"Próxima"}
-      buttonActionFunc={handleClick}
-      buttonTwoActionFunc={toPreviousQuestion}
+      buttonUrl={"/questionFive"}
+      buttonTwoUrl={-1}
     >
       <ObjetiveQuestionsList
         commonOptionsConfigObj={commonOptionsConfigObj}
