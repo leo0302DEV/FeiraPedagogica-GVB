@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
 import { QuestionsContext } from "../providers/QuestionsProvider";
+import PrimaryButton from "../components/PrimaryButton";
+import { useNavigate } from "react-router-dom";
 
 const StyledMainContainer = styled.section`
   width: 100%;
@@ -50,6 +52,11 @@ const StyledSpan = styled.span`
 const ResultsPage = () => {
   const { returnSleepQualityResult, result } = useContext(QuestionsContext);
   const [quality, setQuality] = useState("");
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
 
   useEffect(() => {
     const qualityResult = returnSleepQualityResult();
@@ -62,6 +69,7 @@ const ResultsPage = () => {
         <StyledTitle>A qualidade do seu sono é:</StyledTitle>
         <StyledResultParagraph>{quality}</StyledResultParagraph>
         <StyledScoreParagraph>Seus pontos: {result}</StyledScoreParagraph>
+        <PrimaryButton text={"Voltar ao início"} onAction={handleClick} />
         <StyledSpan>Turma 221 | GVB</StyledSpan>
       </StyledContentBox>
     </StyledMainContainer>
