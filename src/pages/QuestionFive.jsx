@@ -24,12 +24,17 @@ const QuestionFive = () => {
     navigate("/questionSix");
   };
 
+  const toPreviousQuestion = () => {
+    navigate(-1);
+  };
+
   return (
     <QuestionsPageMold
       question={"Você se sente descansado ao acordar?"}
       quetionNumber={5}
       buttonText={"Próxima"}
       buttonActionFunc={handleClick}
+      buttonTwoActionFunc={toPreviousQuestion}
     >
       <ObjetiveQuestionsList
         commonOptionsConfigObj={commonOptionsConfigObj}

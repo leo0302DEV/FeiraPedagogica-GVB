@@ -12,11 +12,16 @@ const QuestionOne = () => {
     navigate("/questionTwo");
   };
 
+  const toPreviousQuestion = () => {
+    navigate(-1);
+  };
+
   return (
     <QuestionsPageMold
       question={"Quantos anos você tem?"}
       quetionNumber={1}
       buttonActionFunc={toNextQuestion}
+      buttonTwoActionFunc={toPreviousQuestion}
     >
       <RangeQuestionMold
         state={age}

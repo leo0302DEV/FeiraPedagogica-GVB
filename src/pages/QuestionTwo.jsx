@@ -12,11 +12,16 @@ const QuestionTwo = () => {
     navigate("/questionThree");
   };
 
+  const toPreviousQuestion = () => {
+    navigate(-1);
+  };
+
   return (
     <QuestionsPageMold
       question={"Quantas horas de sono você constuma ter por noite?"}
       quetionNumber={2}
       buttonActionFunc={toNextQuestion}
+      buttonTwoActionFunc={toPreviousQuestion}
     >
       <RangeQuestionMold
         state={sleepHours}

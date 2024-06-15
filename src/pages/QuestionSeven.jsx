@@ -24,12 +24,17 @@ const QuestionSeven = () => {
     navigate("/results");
   };
 
+  const toPreviousQuestion = () => {
+    navigate(-1);
+  };
+
   return (
     <QuestionsPageMold
       question={"Qual o seu nível de energia durante o dia?"}
       quetionNumber={7}
       buttonText={"Ver resultado"}
       buttonActionFunc={handleClick}
+      buttonTwoActionFunc={toPreviousQuestion}
     >
       <ObjetiveQuestionsList
         commonOptionsConfigObj={commonOptionsConfigObj}

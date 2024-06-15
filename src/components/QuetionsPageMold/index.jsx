@@ -28,9 +28,11 @@ const StyledParagraph = styled.p`
 const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  gap: 1rem;
   position: fixed;
   width: 100%;
   bottom: 2rem;
+  padding: 1rem;
 `;
 
 const QuestionsPageMold = ({
@@ -38,6 +40,7 @@ const QuestionsPageMold = ({
   quetionNumber,
   buttonText = "Próxima",
   buttonActionFunc,
+  buttonTwoActionFunc = null,
   children,
 }) => {
   return (
@@ -46,6 +49,9 @@ const QuestionsPageMold = ({
       <StyledParagraph>{question}</StyledParagraph>
       {children}
       <StyledButtonContainer>
+        {buttonTwoActionFunc && (
+          <PrimaryButton text={"Anterior"} onAction={buttonTwoActionFunc} />
+        )}
         <PrimaryButton text={buttonText} onAction={buttonActionFunc} />
       </StyledButtonContainer>
     </StyledPrimeryPageContainer>

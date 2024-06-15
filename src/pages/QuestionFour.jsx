@@ -24,6 +24,10 @@ const QuestionFour = () => {
     navigate("/questionFive");
   };
 
+  const toPreviousQuestion = () => {
+    navigate(-1);
+  };
+
   return (
     <QuestionsPageMold
       question={
@@ -32,6 +36,7 @@ const QuestionFour = () => {
       quetionNumber={4}
       buttonText={"Próxima"}
       buttonActionFunc={handleClick}
+      buttonTwoActionFunc={toPreviousQuestion}
     >
       <ObjetiveQuestionsList
         commonOptionsConfigObj={commonOptionsConfigObj}

@@ -24,12 +24,17 @@ const QuestionThree = () => {
     navigate("/questionFour");
   };
 
+  const toPreviousQuestion = () => {
+    navigate(-1);
+  };
+
   return (
     <QuestionsPageMold
       question={"Com que frequência você acorda durante a noite?"}
       quetionNumber={3}
       buttonText={"Próxima"}
       buttonActionFunc={handleClick}
+      buttonTwoActionFunc={toPreviousQuestion}
     >
       <ObjetiveQuestionsList
         opitionsConfigObj={opitionsConfig.opitionsConfigObj}
